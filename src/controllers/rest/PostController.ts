@@ -25,17 +25,17 @@ export class PostController {
   @Inject(PostModel) private model: MongooseModel<PostModel>;
 
   @Post("/paginated")
-  async getAll(@BodyParams("limits") limits: iLimits): Promise<PostModel[]> {
+  async getAll(@BodyParams("limits") limits: iLimits) {
     return this.postsService.findPaginatedPosts(limits);
   }
 
   @Get("/latest")
-  async getLatest(): Promise<PostModel> {
+  async getLatest() {
     return this.postsService.findLatestPost();
   }
 
   @Post("/generate")
-  async generate(@BodyParams("post") post: iPost): Promise<PostModel> {
+  async generate(@BodyParams("post") post: iPost) {
     const doc = new this.model(post);
     await doc.save();
 

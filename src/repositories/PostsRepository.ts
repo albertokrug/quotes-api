@@ -2,6 +2,10 @@ import { Inject, Injectable } from "@tsed/di";
 import { MongooseModel } from "@tsed/mongoose";
 import { PostModel } from "src/models/PostModel";
 
+interface iLimits {
+  skip: number;
+  lim: number;
+}
 @Injectable()
 export class PostsRepository {
   @Inject(PostModel) private model: MongooseModel<PostModel>;
@@ -13,7 +17,7 @@ export class PostsRepository {
     return doc;
   }
 
-  async findLatest(): Promise<PostModel> {
+  async findLatest() {
     try {
       const latestObj = await this.model.findOne().sort({ createdAt: -1 }).exec();
       return latestObj;
@@ -21,7 +25,7 @@ export class PostsRepository {
       console.log(err);
     }
   }
-  async findPaginated(limits: any): Promise<PostModel[]> {
+  async findPaginated(limits: iLimits) {
     try {
       const objects = await this.model.find().sort({ createdAt: -1 }).skip(limits.skip).limit(limits.lim).exec();
       return objects;

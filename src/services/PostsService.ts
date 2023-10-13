@@ -1,6 +1,10 @@
 import { Inject, Injectable, ProviderType } from "@tsed/di";
-import { PostModel } from "src/models/PostModel";
 import { PostsRepository } from "src/repositories/PostsRepository";
+
+interface iLimits {
+  skip: number;
+  lim: number;
+}
 
 @Injectable({
   type: ProviderType.SERVICE
@@ -8,7 +12,7 @@ import { PostsRepository } from "src/repositories/PostsRepository";
 export class PostsService {
   @Inject(PostsRepository) private postsRepository: PostsRepository;
 
-  async findLatestPost(): Promise<PostModel> {
+  async findLatestPost() {
     const latestPost = this.postsRepository.findLatest();
 
     //make mapping to post here
@@ -16,7 +20,7 @@ export class PostsService {
     return latestPost;
   }
 
-  async findPaginatedPosts(limits: any): Promise<PostModel[]> {
+  async findPaginatedPosts(limits: iLimits) {
     const latestPost = this.postsRepository.findPaginated(limits);
 
     //make mapping to post here
