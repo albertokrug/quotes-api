@@ -1,7 +1,7 @@
 import { BodyParams, Controller, Inject, Injectable, Post } from "@tsed/common";
 import { MongooseModel } from "@tsed/mongoose";
 import { Any } from "@tsed/schema";
-import { SubscriptionModel } from "src/models/SubscriptionModel";
+import { SubscriptionModel } from "../../models/SubscriptionModel";
 import webPush from "web-push";
 
 @Controller("/subscribe")
