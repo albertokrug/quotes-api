@@ -1,5 +1,5 @@
 import { Inject, Injectable, ProviderType } from "@tsed/di";
-import { PostsRepository } from "src/repositories/PostsRepository";
+import { PostsRepository } from "../repositories/PostsRepository";
 
 interface iLimits {
   skip: number;

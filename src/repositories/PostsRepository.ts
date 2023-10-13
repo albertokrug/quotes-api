@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@tsed/di";
 import { MongooseModel } from "@tsed/mongoose";
-import { PostModel } from "src/models/PostModel";
+import { PostModel } from "../models/PostModel";
 
 interface iLimits {
   skip: number;

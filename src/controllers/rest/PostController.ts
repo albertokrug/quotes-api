@@ -1,7 +1,7 @@
 import { BodyParams, Controller, Get, Inject, Injectable, Post } from "@tsed/common";
 //import { MongooseModel } from "@tsed/mongoose";
 //import { PostModel } from "src/models/PostModel";
-import { PostsService } from "src/services/PostsService";
+import { PostsService } from "../../services/PostsService";
 
 /* https://tsed.io/docs/controllers.html */
 
