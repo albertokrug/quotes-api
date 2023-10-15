@@ -1,7 +1,7 @@
 import { Inject, Injectable } from "@tsed/di";
 import { MongooseModel } from "@tsed/mongoose";
 import { PostModel } from "../models/PostModel";
-import { iPost, iLimits } from "src/interfaces";
+import { iPost, iLimits } from "../interfaces";
 
 @Injectable()
 export class PostsRepository {

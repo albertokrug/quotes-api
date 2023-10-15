@@ -1,6 +1,6 @@
 import { BodyParams, Controller, Inject, Injectable, Post } from "@tsed/common";
-import { NotificationService } from "src/services/NotificationsService";
-import { iSubscription } from "src/interfaces";
+import { NotificationService } from "../../services/NotificationsService";
+import { iSubscription } from "../../interfaces";
 
 @Controller("/subscribe")
 @Injectable()

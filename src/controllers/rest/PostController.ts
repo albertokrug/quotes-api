@@ -1,6 +1,6 @@
 import { BodyParams, Controller, Get, Inject, Injectable, Post } from "@tsed/common";
 import { PostsService } from "../../services/PostsService";
-import { iPost, iLimits } from "src/interfaces";
+import { iPost, iLimits } from "../../interfaces";
 
 @Controller("/posts")
 @Injectable()

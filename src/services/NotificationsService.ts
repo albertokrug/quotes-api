@@ -1,7 +1,7 @@
 import { Inject, Injectable, ProviderType } from "@tsed/di";
 import { MongooseModel } from "@tsed/mongoose";
-import { iSubscription } from "src/interfaces";
-import { SubscriptionModel } from "src/models/SubscriptionModel";
+import { iSubscription } from "../interfaces";
+import { SubscriptionModel } from "../models/SubscriptionModel";
 import webPush from "web-push";
 
 @Injectable({

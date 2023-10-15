@@ -1,6 +1,6 @@
 import { Inject, Injectable, ProviderType } from "@tsed/di";
 import { PostsRepository } from "../repositories/PostsRepository";
-import { iPost, iLimits } from "src/interfaces";
+import { iPost, iLimits } from "../interfaces";
 import { NotificationService } from "./NotificationsService";
 @Injectable({
   type: ProviderType.SERVICE
