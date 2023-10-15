@@ -1,11 +1,6 @@
 import { Inject, Injectable, ProviderType } from "@tsed/di";
 import { PostsRepository } from "../repositories/PostsRepository";
-
-interface iLimits {
-  skip: number;
-  lim: number;
-}
-
+import { iPost, iLimits } from "src/interfaces";
 @Injectable({
   type: ProviderType.SERVICE
 })
@@ -26,5 +21,10 @@ export class PostsService {
     //make mapping to post here
 
     return latestPost;
+  }
+
+  async savePost(post: iPost) {
+    this.postsRepository.save(post);
+    //send notifications
   }
 }
