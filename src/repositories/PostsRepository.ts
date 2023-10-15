@@ -11,7 +11,7 @@ export class PostsRepository {
     const doc = new this.model(obj);
     await doc.save();
 
-    return doc;
+    return doc.toClass();
   }
 
   async findLatest() {

@@ -1,11 +1,13 @@
 import { Inject, Injectable, ProviderType } from "@tsed/di";
 import { PostsRepository } from "../repositories/PostsRepository";
 import { iPost, iLimits } from "src/interfaces";
+import { NotificationService } from "./NotificationsService";
 @Injectable({
   type: ProviderType.SERVICE
 })
 export class PostsService {
   @Inject(PostsRepository) private postsRepository: PostsRepository;
+  @Inject(NotificationService) private notificationService: NotificationService;
 
   async findLatestPost() {
     const latestPost = this.postsRepository.findLatest();
@@ -24,7 +26,7 @@ export class PostsService {
   }
 
   async savePost(post: iPost) {
-    this.postsRepository.save(post);
-    //send notifications
+    const newPost = await this.postsRepository.save(post);
+    this.notificationService.sendNotificationToAllSubcribers(newPost.saidBy, newPost.body);
   }
 }

@@ -10,3 +10,12 @@ export interface iPost {
   quotedBy: string;
   createdAt: string;
 }
+
+export interface iSubscription {
+  endpoint: string;
+  expirationTime: number;
+  keys: {
+    p256dh: string;
+    auth: string;
+  };
+}

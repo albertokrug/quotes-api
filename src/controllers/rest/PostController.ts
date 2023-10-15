@@ -6,7 +6,6 @@ import { iPost, iLimits } from "src/interfaces";
 @Injectable()
 export class PostController {
   @Inject(PostsService) private postsService: PostsService;
-  //@Inject(PostModel) private model: MongooseModel<PostModel>;
 
   @Post("/paginated")
   async getAll(@BodyParams("limits") limits: iLimits) {
