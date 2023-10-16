@@ -1,8 +1,10 @@
 import { isProduction } from "../envs/index";
 
-let connectionUrl = "mongodb://127.0.0.1:27017/";
+let connectionUrl: string | undefined;
 if (isProduction) {
-  connectionUrl = "mongodb+srv://albertkrug:4lf3mDEvtxAA34I4@cluster0.0yvqkam.mongodb.net/quotes?retryWrites=true&w=majority";
+  connectionUrl = process.env.MONGODB_URI;
+} else {
+  connectionUrl = "mongodb://127.0.0.1:27017/";
 }
 
 export default {

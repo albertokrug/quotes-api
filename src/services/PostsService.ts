@@ -11,7 +11,7 @@ export class PostsService {
 
   async findLatestPost() {
     const latestPost = this.postsRepository.findLatest();
-
+    console.log(process.env.MONGODB_URI);
     //make mapping to post here
 
     return latestPost;
